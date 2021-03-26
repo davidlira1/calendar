@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { getMonthData } from '../../month/monthData.js';
 import CalendarHeader from './CalendarHeader.jsx';
 import Days from './Days.jsx';
-import fetchMonthData from './fetchMonthData.js';
+// import fetchMonthData from './fetchMonthData.js';
 
 var CalendarContainer = styled.div
 `
@@ -59,14 +59,20 @@ class Calendar extends React.Component {
             }
         }
 
-        fetchMonthData(newMonth, newYear)
-        .then(data => {
-            this.setState({
-                month: newMonth,
-                monthName: data.monthName,
-                year: newYear,
-                monthData: data.monthData
-            })
+        // fetchMonthData(newMonth, newYear)
+        // .then(data => {
+        //     this.setState({
+        //         month: newMonth,
+        //         monthName: data.monthName,
+        //         year: newYear,
+        //         monthData: data.monthData
+        //     })
+        // })
+        var data = getMonthData(newMonth, newYear);
+
+        this.setState({
+            monthName: data.monthName,
+            monthData: data.monthData
         })
     }
 
