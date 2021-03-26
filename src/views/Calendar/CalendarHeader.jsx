@@ -28,8 +28,8 @@ var CalendarHeader = (props)  => {
     return (
         <CalendarHeaderContainer>
             <MonthNameContainer>{props.monthName} {props.year}</MonthNameContainer>
-            <ButtonContainer onClick={(ev) => props.changeMonth("previous")}><i class='fas fa-angle-left'></i></ButtonContainer>
-            <ButtonContainer onClick={(ev) => props.changeMonth("next")}><i class='fas fa-angle-right'></i></ButtonContainer>
+            <ButtonContainer onClick={(ev) => props.changeMonth("previous")}>{'<'}</ButtonContainer>
+            <ButtonContainer onClick={(ev) => props.changeMonth("next")}>{'>'}</ButtonContainer>
         </CalendarHeaderContainer>
     )
 }
