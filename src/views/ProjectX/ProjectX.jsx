@@ -4,7 +4,7 @@ import Project from './Project.jsx';
 
 var ProjectXContainer = styled.div
 `
-    margin: 120px 5%;
+    margin: 150px 5%;
     width: 50%;
     box-shadow: 3px 3px 5px 6px #ccc;
 
