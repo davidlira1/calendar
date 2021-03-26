@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Header from './views/Header/Header.jsx';
+import ProjectX from './views/ProjectX/ProjectX.jsx';
+import Calendar from './views/Calendar/Calendar.jsx';
+import data from './views/ProjectX/data.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+  constructor(props) {
+      super(props);
+
+      var date = new Date();
+      this.state = {
+          month: date.getMonth() + 1,
+          year: date.getFullYear(),
+          view: "Calendar",
+          projects: []
+      }
+      this.changeView = this.changeView.bind(this);
+  }
+
+  componentDidMount() {
+      this.setState({
+          projects: data
+      })
+  }
+
+  changeView(viewName) {
+      this.setState({
+          view: viewName
+      })
+  }
+
+  render() {
+
+    return(
+      <div>
+        <Header changeView={this.changeView}/>
+                 
+        {this.state.view === "Project Management"
+        ? <ProjectX projects={this.state.projects}/>
+        : <Calendar month={this.state.month} year={this.state.year}/>}
+                  
+      </div>
+    )
+  }
 }
 
 export default App;
