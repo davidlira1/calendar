@@ -71,7 +71,9 @@ class Calendar extends React.Component {
         var data = getMonthData(newMonth, newYear);
 
         this.setState({
+            month: newMonth,
             monthName: data.monthName,
+            year: newYear,
             monthData: data.monthData
         })
     }
