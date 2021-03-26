@@ -34,7 +34,7 @@ class App extends React.Component {
   render() {
 
     return(
-      <div>
+      <div className="App">
         <Header changeView={this.changeView}/>
                  
         {this.state.view === "Project Management"
